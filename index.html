@@ -1364,24 +1364,24 @@
       }
 
       #build .section-head {
-        grid-template-columns: minmax(0, .92fr) minmax(480px, 1.08fr);
+        grid-template-columns: minmax(620px, .98fr) minmax(420px, .92fr);
         align-items: center;
-        gap: clamp(42px, 6vw, 92px);
-        margin-bottom: 32px;
+        gap: clamp(46px, 5vw, 82px);
+        margin-bottom: 34px;
       }
 
       #build .section-head h2 {
-        max-width: 690px;
-        font-size: clamp(52px, 4.15vw, 74px);
+        max-width: 800px;
+        font-size: clamp(50px, 3.85vw, 70px);
         line-height: .96;
       }
 
       #build .section-head p {
         position: relative;
-        max-width: 780px;
+        max-width: 640px;
         padding-left: 26px;
-        font-size: clamp(18px, 1.35vw, 23px);
-        line-height: 1.58;
+        font-size: clamp(18px, 1.22vw, 21px);
+        line-height: 1.62;
       }
 
       #build .section-head p::before {
@@ -1402,7 +1402,66 @@
       .enhance-grid {
         gap: 12px;
       }
+
+      #build .builder {
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 400px);
+        gap: 18px;
+      }
+
+      #build .build-insight {
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      #build .build-insight div {
+        min-height: 96px;
+        padding: 18px;
+      }
+
+      #build .systems {
+        gap: 16px;
+      }
+
+      #build .sys-card {
+        min-height: 178px;
+        padding: 22px;
+      }
+
+      #build .quote-panel {
+        padding: 28px;
+        border-color: rgba(255,194,71,.36);
+        box-shadow: 0 22px 80px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08);
+      }
     }
+    @media (min-width: 981px) and (max-width: 1240px) {
+      #build > .wrap {
+        width: min(100% - 42px, 1120px);
+      }
+
+      #build .section-head {
+        grid-template-columns: minmax(420px, .95fr) minmax(360px, .85fr);
+        gap: 34px;
+      }
+
+      #build .section-head h2 {
+        font-size: clamp(46px, 5vw, 58px);
+      }
+
+      #build .section-head p {
+        max-width: 520px;
+        font-size: 18px;
+      }
+
+      #build .builder {
+        grid-template-columns: 1fr;
+      }
+
+      #build .quote-panel {
+        position: relative;
+        top: 0;
+      }
+    }
+
     @media (max-width: 980px) {
       body, button, a, .sys-card, .node, .toggle { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
