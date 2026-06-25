@@ -737,7 +737,7 @@
 
     section {
       position: relative;
-      padding: clamp(76px, 10vw, 132px) 0;
+      padding: clamp(54px, 6.5vw, 92px) 0;
       scroll-margin-top: 110px;
     }
 
@@ -746,7 +746,7 @@
       grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
       gap: 34px;
       align-items: end;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .ey {
@@ -1337,6 +1337,35 @@
       transform: translateY(0);
     }
 
+
+    /* Desktop rhythm tightening */
+    @media (min-width: 981px) {
+      #build,
+      #work,
+      #industries,
+      #enhance,
+      #why,
+      #contact {
+        padding-top: clamp(42px, 5vw, 76px);
+      }
+
+      #motion {
+        padding-top: clamp(46px, 5.5vw, 82px);
+      }
+
+      #build .section-head,
+      #industries .section-head,
+      #why .section-head {
+        margin-bottom: 30px;
+      }
+
+      .builder,
+      .work-grid,
+      .why-grid,
+      .enhance-grid {
+        gap: 12px;
+      }
+    }
     @media (max-width: 980px) {
       body, button, a, .sys-card, .node, .toggle { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
@@ -2163,6 +2192,7 @@
   </script>
 </body>
 </html>
+
 
 
 
