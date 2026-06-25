@@ -1353,10 +1353,47 @@
         padding-top: clamp(46px, 5.5vw, 82px);
       }
 
+      #build > .wrap {
+        width: min(1540px, calc(100% - 64px));
+      }
+
       #build .section-head,
       #industries .section-head,
       #why .section-head {
         margin-bottom: 30px;
+      }
+
+      #build .section-head {
+        grid-template-columns: minmax(0, .92fr) minmax(480px, 1.08fr);
+        align-items: center;
+        gap: clamp(42px, 6vw, 92px);
+        margin-bottom: 32px;
+      }
+
+      #build .section-head h2 {
+        max-width: 690px;
+        font-size: clamp(52px, 4.15vw, 74px);
+        line-height: .96;
+      }
+
+      #build .section-head p {
+        position: relative;
+        max-width: 780px;
+        padding-left: 26px;
+        font-size: clamp(18px, 1.35vw, 23px);
+        line-height: 1.58;
+      }
+
+      #build .section-head p::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: .25em;
+        bottom: .25em;
+        width: 2px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--gold), transparent);
+        opacity: .72;
       }
 
       .builder,
