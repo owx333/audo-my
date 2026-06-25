@@ -1618,6 +1618,27 @@
         gap: 12px;
       }
     }
+
+    /* iPhone fix: Build heading should stack cleanly */
+    @media (max-width: 640px) {
+      #build .section-head {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+        align-items: start;
+      }
+
+      #build .section-head h2 {
+        max-width: 8.5ch;
+        font-size: clamp(42px, 14vw, 58px);
+        line-height: .92;
+      }
+
+      #build .section-head p {
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 1.55;
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .001ms !important;
@@ -2192,6 +2213,7 @@
   </script>
 </body>
 </html>
+
 
 
 
