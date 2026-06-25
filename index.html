@@ -242,6 +242,32 @@
       border: 0;
       box-shadow: 0 0 18px rgba(219, 231, 255, .18);
     }
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      min-width: 112px;
+      line-height: 1;
+    }
+
+    .brand-word-img {
+      display: block;
+      width: 112px;
+      height: 24px;
+      object-fit: contain;
+      object-position: left center;
+      mix-blend-mode: screen;
+      filter: brightness(1.12) drop-shadow(0 0 10px rgba(219,231,255,.16));
+    }
+
+    .brand-lockup small {
+      color: rgba(229, 238, 255, .72);
+      font: 800 8.5px/1 var(--mono);
+      letter-spacing: .42em;
+      padding-left: 2px;
+    }
+
     .brand-word {
       display: flex;
       flex-direction: column;
@@ -1366,6 +1392,32 @@
       border: 0;
       box-shadow: 0 0 18px rgba(219, 231, 255, .18);
     }
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      min-width: 112px;
+      line-height: 1;
+    }
+
+    .brand-word-img {
+      display: block;
+      width: 112px;
+      height: 24px;
+      object-fit: contain;
+      object-position: left center;
+      mix-blend-mode: screen;
+      filter: brightness(1.12) drop-shadow(0 0 10px rgba(219,231,255,.16));
+    }
+
+    .brand-lockup small {
+      color: rgba(229, 238, 255, .72);
+      font: 800 8.5px/1 var(--mono);
+      letter-spacing: .42em;
+      padding-left: 2px;
+    }
+
     .brand-word { display: none; }
       .pill.primary.nav-quote { display: none; }
       .hero h1 { font-size: clamp(39px, 12.8vw, 64px); }
@@ -1394,6 +1446,149 @@
       section { padding: 72px 0; }
     }
 
+
+    /* Mobile polish: brand visibility, chart crop, and section rhythm */
+    @media (max-width: 640px) {
+      .nav-inner {
+        height: 62px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 9px;
+      }
+
+      .brand span:last-child,
+      .brand-lockup {
+        display: inline-flex !important;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+      }
+
+      .brand-lockup {
+        min-width: 82px;
+        max-width: 98px;
+        gap: 3px;
+      }
+
+      .brand-word-img {
+        width: 92px;
+        height: 19px;
+      }
+
+      .brand-lockup small {
+        font-size: 6.8px;
+        letter-spacing: .28em;
+      }
+
+      .langbar {
+        display: inline-flex !important;
+        padding: 3px;
+        gap: 2px;
+      }
+
+      .langbar button {
+        min-width: 30px;
+        height: 30px;
+        font-size: 10px;
+      }
+
+      .theme-btn,
+      .nav-quote {
+        display: none !important;
+      }
+
+      .hero {
+        padding-top: 96px;
+        padding-bottom: 42px;
+      }
+
+      .system-cube {
+        min-height: 0;
+        padding-bottom: 0;
+      }
+
+      .cube-card {
+        position: relative;
+        inset: auto;
+        min-height: 0;
+        max-height: none;
+        transform: rotateX(5deg) rotateY(-5deg) scale(.96);
+        overflow: visible;
+      }
+
+      .dashboard {
+        padding: 18px;
+        gap: 12px;
+      }
+
+      .mini {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      .mini.hero-wide {
+        min-height: 0;
+      }
+
+      .feed-row {
+        padding: 11px 12px;
+      }
+
+      section {
+        padding: 34px 0;
+      }
+
+      #services,
+      #build,
+      #work,
+      #industries,
+      #enhance,
+      #why,
+      #contact {
+        padding-top: 24px;
+      }
+
+      #motion {
+        padding-top: 30px;
+      }
+
+      #build .section-head,
+      #industries .section-head,
+      #why .section-head,
+      #contact .contact-shell {
+        margin-top: 0;
+      }
+
+      .section-head {
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(34px, 10vw, 48px);
+      }
+
+      .section-head p,
+      .contact-copy p {
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .builder,
+      .work-grid,
+      .why-grid,
+      .enhance-grid,
+      .contact-methods {
+        gap: 12px;
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .001ms !important;
@@ -1416,7 +1611,7 @@
     <div class="wrap nav-inner">
       <a href="#top" class="brand" aria-label="AUDO home">
         <img class="brand-logo brand-logo-img" src="audo-mark-white.png" alt="AUDO Solutions logo">
-        <span class="brand-word"><span>AUDO</span><small>SOLUTIONS</small></span>
+        <span class="brand-lockup"><img class="brand-word-img" src="audoword.png" alt="AUDO"><small>SOLUTIONS</small></span>
       </a>
       <div class="links" id="links">
         <a href="#services"><span class="zh">服务</span><span class="en">Services</span></a>
@@ -1968,6 +2163,10 @@
   </script>
 </body>
 </html>
+
+
+
+
 
 
 
