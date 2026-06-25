@@ -220,12 +220,28 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 5px;
       background: #061225;
       border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 0 28px rgba(255, 194, 71, .18);
+      box-shadow: 0 0 18px rgba(219, 231, 255, .16);
     }
 
+    .brand-logo-mask {
+      background: linear-gradient(135deg, #ffffff, #dbe7ff 64%, #8fb4ff);
+      -webkit-mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      mask-mode: luminance;
+      -webkit-mask-mode: luminance;
+      border: 0;
+      box-shadow: 0 0 18px rgba(219, 231, 255, .18);
+    }
     .brand-word {
       display: flex;
       flex-direction: column;
@@ -378,6 +394,19 @@
       letter-spacing: 0;
     }
 
+
+    .hero h1 .zh {
+      line-height: .98;
+    }
+
+    .headline-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .headline-line .split-word + .split-word {
+      margin-left: .18em;
+    }
     .split-word {
       display: inline-block;
       overflow: hidden;
@@ -1002,9 +1031,59 @@
     .scenario-row button { min-height: 34px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--glass-2); color: var(--soft); font: 700 11px/1 var(--mono); }
     .scenario-row button.active { color: #071124; background: var(--gold); border-color: transparent; }
 
+
+
+    .demo-classic {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 38%, rgba(38, 76, 150, .35), transparent 38%), linear-gradient(180deg, rgba(10, 28, 74, .92), rgba(8, 24, 62, .98));
+    }
+    .demo-head { position: relative; z-index: 2; max-width: 900px; margin: 0 auto 48px; text-align: center; }
+    .demo-head h2 { margin-top: 28px; color: #fff; font-size: clamp(42px, 6vw, 72px); line-height: .95; }
+    .demo-head p { max-width: 920px; margin: 26px auto 0; color: rgba(229, 238, 255, .78); font-size: clamp(18px, 2.1vw, 25px); line-height: 1.55; }
+    .demo-rule { width: 98px; height: 5px; margin: 28px auto 0; border-radius: 999px; background: linear-gradient(90deg, rgba(34,224,208,.55), var(--gold)); }
+    .demo-stage { position: relative; display: grid; grid-template-columns: minmax(360px, .95fr) minmax(320px, .85fr); gap: clamp(34px, 7vw, 88px); align-items: center; min-height: 520px; }
+    .demo-orbit-wrap { position: relative; min-height: 560px; display: grid; place-items: center; }
+    .demo-watermark { position: absolute; width: min(620px, 86vw); aspect-ratio: 1; object-fit: contain; opacity: .13; mix-blend-mode: screen; filter: drop-shadow(0 0 22px rgba(219,231,255,.16)); animation: spin 42s linear infinite; pointer-events: none; }
+    .demo-watermark-mark, .engine-mark {
+      -webkit-mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      mask-mode: luminance;
+    }
+    .classic-loop { width: min(540px, 100%); border: 0; background: none; box-shadow: none; transform: none; transform-style: flat; overflow: visible; }
+    .classic-loop::before { inset: 16%; border: 3px dashed rgba(255, 194, 71, .36); opacity: 0; transition: opacity .28s ease, border-color .28s ease, box-shadow .28s ease; animation-duration: 32s; }
+    .classic-loop::after { display: none; }
+    .classic-loop .node { z-index: 3; width: 150px; min-height: 56px; margin: -28px 0 0 -75px; padding: 0 18px 0 38px; display: flex; align-items: center; justify-content: flex-start; border-radius: 13px; text-align: left; background: rgba(32, 63, 136, .84); border-color: rgba(124, 157, 235, .28); color: #eef4ff; box-shadow: 0 18px 38px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255,255,255,.08); transform: none; font-family: var(--body); font-size: 16px; font-weight: 800; line-height: 1.15; }
+    .classic-loop .node::before { content: ""; position: absolute; left: 18px; width: 11px; height: 11px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 18px rgba(255, 194, 71, .55); }
+    .classic-loop .node:hover, .classic-loop .node.hit { transform: translateY(-7px) scale(1.035); border-color: rgba(255, 194, 71, .72); box-shadow: 0 24px 48px rgba(0, 0, 0, .24), 0 0 34px rgba(255, 194, 71, .2); }
+    .classic-loop .node.off { opacity: .5; filter: saturate(.45); }
+    .engine-core { position: absolute; z-index: 2; inset: 50% auto auto 50%; width: 178px; min-height: 210px; transform: translate(-50%, -50%); display: grid; justify-items: center; align-content: center; gap: 12px; pointer-events: none; }
+    .engine-core::before, .engine-core::after { content: ""; position: absolute; width: 166px; height: 166px; border-radius: 50%; border: 1px solid rgba(255, 194, 71, .34); opacity: 0; transform: scale(.82); pointer-events: none; }
+    .engine-logo { width: 150px; height: 150px; object-fit: contain; background: transparent; mix-blend-mode: screen; animation: spin 8s linear infinite; filter: brightness(1.18) drop-shadow(0 0 18px rgba(219,231,255,.32)); }
+    .engine-core span { color: rgba(229, 238, 255, .74); font: 700 11px/1 var(--mono); letter-spacing: .42em; }
+    .demo-classic.running .classic-loop::before { opacity: 1; border-color: rgba(255, 194, 71, .78); box-shadow: 0 0 42px rgba(255, 194, 71, .2); animation-duration: 7s; }
+    
+    .demo-classic.running .engine-core::before { animation: runPulse 1.45s ease-out infinite; }
+    .demo-classic.running .engine-core::after { animation: runPulse 1.45s ease-out .48s infinite; }
+    .run-spark { position: absolute; z-index: 4; left: 50%; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 18px rgba(255, 194, 71, .86); transform: rotate(var(--a)) translateX(94px); animation: sparkMove .95s ease-out forwards; pointer-events: none; }
+    @keyframes runPulse { 0% { opacity: .85; transform: scale(.78); } 100% { opacity: 0; transform: scale(1.65); } }
+    @keyframes sparkMove { 0% { opacity: 0; transform: rotate(var(--a)) translateX(80px) scale(.5); } 20% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--a)) translateX(230px) scale(1.15); } }
+    .demo-panel { position: relative; z-index: 2; max-width: 520px; }
+    .demo-panel p { color: rgba(229, 238, 255, .74); font-size: clamp(18px, 2vw, 24px); line-height: 1.55; }
+    .demo-panel .pill.primary { min-width: 130px; min-height: 76px; justify-content: center; border-radius: 999px; font-size: 21px; color: #071124; }
+    .demo-counter { margin-top: 34px; color: #f3f7ff; font-family: var(--body); font-size: 24px; line-height: 1.2; }
+    .demo-counter b { display: inline-block; min-width: 44px; color: var(--gold); font-size: 42px; font-family: var(--display); text-align: center; }
+    .plog { margin-top: 28px; min-height: 32px; padding-left: 16px; border-left: 2px solid rgba(255, 194, 71, .46); color: rgba(229, 238, 255, .64); font: 700 12px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
@@ -1016,9 +1095,8 @@
       justify-content: space-between;
     }
 
-    .work-card:nth-child(2) { margin-top: 42px; }
-    .work-card:nth-child(4) { margin-top: 74px; }
-    .work-card:nth-child(5) { margin-top: 28px; }
+    .work-card:nth-child(2), .work-card:nth-child(5) { margin-top: 34px; }
+    .work-card:nth-child(3) { margin-top: 68px; }
     .work-card h3 {
       margin-top: 18px;
       font-family: var(--display);
@@ -1236,22 +1314,25 @@
     @media (max-width: 980px) {
       body, button, a, .sys-card, .node, .toggle { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
+      .nav-inner { position: relative; grid-template-columns: auto auto; justify-content: space-between; }
       .links {
-        position: fixed;
-        top: 92px;
-        left: 21px;
-        right: 21px;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        right: auto;
+        width: min(360px, calc(100vw - 28px));
+        transform: translateX(-50%);
         display: none;
         padding: 12px;
         border: 1px solid var(--line);
         border-radius: 20px;
-        background: var(--glass);
+        background: rgba(8, 20, 48, .94);
         backdrop-filter: blur(20px);
+        box-shadow: 0 26px 70px rgba(0, 0, 0, .28);
       }
       .links.open { display: grid; }
-      .links a { padding: 14px; }
+      .links a { padding: 14px; justify-content: center; text-align: center; }
       .burger { display: inline-flex; }
-      .nav-inner { grid-template-columns: auto 1fr auto; }
       .hero-grid, .section-head, .asym-grid, .builder, .orbit-tool, .contact-shell { grid-template-columns: 1fr; }
       .build-insight, .try-console { grid-template-columns: 1fr; }
       .hero { min-height: auto; padding-top: 124px; }
@@ -1270,9 +1351,24 @@
       .nav { top: 10px; }
       .nav-inner { padding: 0 12px; border-radius: 16px; }
       .brand span:last-child { display: none; }
-      .brand-word { display: none; }
+      .brand-logo-mask {
+      background: linear-gradient(135deg, #ffffff, #dbe7ff 64%, #8fb4ff);
+      -webkit-mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      mask-image: var(--audo-mask, url("assets/audo-mark-white.png"));
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      mask-mode: luminance;
+      -webkit-mask-mode: luminance;
+      border: 0;
+      box-shadow: 0 0 18px rgba(219, 231, 255, .18);
+    }
+    .brand-word { display: none; }
       .pill.primary.nav-quote { display: none; }
-      .hero h1 { font-size: clamp(43px, 15vw, 68px); }
+      .hero h1 { font-size: clamp(39px, 12.8vw, 64px); }
       .system-cube { min-height: 430px; }
       .cube-card { min-height: 390px; inset: 20px 0 auto; transform: rotateX(7deg) rotateY(-8deg) scale(.94); }
       .dashboard { grid-template-columns: 1fr; }
@@ -1284,9 +1380,17 @@
       .trust-strip, .systems, .work-grid, .why-grid, .enhance-grid, .contact-methods { grid-template-columns: 1fr; }
       .metric { border-right: 0; border-bottom: 1px solid var(--line); }
       .metric:last-child { border-bottom: 0; }
-      .loop { transform: none; }
-      .node { transform: none; width: 92px; margin-left: -46px; font-size: 10px; }
-      .node:hover, .node.hit { transform: translateY(-5px) scale(1.02); }
+      .demo-stage { grid-template-columns: 1fr; min-height: 0; }
+      .demo-orbit-wrap { min-height: 420px; }
+      .classic-loop { width: min(350px, 100%); transform: none; }
+      .classic-loop .node { width: 112px; min-height: 46px; margin-left: -56px; margin-top: -23px; padding-left: 30px; font-size: 12px; }
+      .classic-loop .node::before { left: 13px; width: 9px; height: 9px; }
+      .classic-loop .node:hover, .classic-loop .node.hit { transform: translateY(-5px) scale(1.02); }
+      .engine-logo { width: 110px; height: 110px; }
+      .engine-core span { font-size: 9px; }
+      .demo-panel { max-width: none; }
+      .demo-panel .pill.primary { min-height: 62px; }
+      .demo-counter { font-size: 19px; }
       section { padding: 72px 0; }
     }
 
@@ -1311,7 +1415,7 @@
   <nav class="nav" id="nav">
     <div class="wrap nav-inner">
       <a href="#top" class="brand" aria-label="AUDO home">
-        <img class="brand-logo" src="assets/audo-mark-white.png" alt="AUDO Solutions logo mark">
+        <span class="brand-logo brand-logo-mask" aria-hidden="true"></span>
         <span class="brand-word"><span>AUDO</span><small>SOLUTIONS</small></span>
       </a>
       <div class="links" id="links">
@@ -1346,10 +1450,8 @@
             <span class="split-word"><span style="--i:4">faster.</span></span>
           </span>
           <span class="zh">
-            <span class="split-word"><span style="--i:1">把运营</span></span>
-            <span class="split-word accent"><span style="--i:2">自动化</span></span>
-            <span class="split-word"><span style="--i:3">把增长</span></span>
-            <span class="split-word"><span style="--i:4">跑起来。</span></span>
+            <span class="headline-line"><span class="split-word"><span style="--i:1">让运营</span></span><span class="split-word accent"><span style="--i:2">自动化</span></span></span>
+            <span class="headline-line"><span class="split-word"><span style="--i:3">让增长</span></span><span class="split-word"><span style="--i:4">跑起来。</span></span></span>
           </span>
         </h1>
         <p class="lead reveal">
@@ -1459,33 +1561,38 @@
       </div>
     </section>
 
-    <section id="motion">
-      <div class="wrap orbit-tool">
-        <div class="loop reveal" id="loop">
-          <button class="node" style="--x:0px; --y:-40%;" data-step="New Lead"><span class="zh">新线索</span><span class="en">New Lead</span></button>
-          <button class="node" style="--x:34%; --y:-20%;" data-step="Follow-up"><span class="zh">自动跟进</span><span class="en">Follow-up</span></button>
-          <button class="node" style="--x:34%; --y:20%;" data-step="Quotation"><span class="zh">报价单</span><span class="en">Quotation</span></button>
-          <button class="node" style="--x:0px; --y:40%;" data-step="E-Invoice"><span class="zh">电子发票</span><span class="en">E-Invoice</span></button>
-          <button class="node" style="--x:-34%; --y:20%;" data-step="Payment"><span class="zh">收款提醒</span><span class="en">Payment</span></button>
-          <button class="node" style="--x:-34%; --y:-20%;" data-step="WhatsApp Alert"><span class="zh">WhatsApp 通知</span><span class="en">WhatsApp Alert</span></button>
+    <section id="motion" class="demo-classic">
+      <div class="wrap">
+        <div class="demo-head reveal">
+          <div class="ey">Live Demo</div>
+          <h2><span class="zh">试一下自动化引擎</span><span class="en">Try the Automation</span></h2>
+          <div class="demo-rule" aria-hidden="true"></div>
+          <p><span class="zh">选择模块、组装流程、按下 Run，然后看 AUDO 把重复工作自己跑完。</span><span class="en">Pick modules, assemble your flow, hit Run and watch it run itself, exactly what AUDO builds for you.</span></p>
         </div>
-        <div class="play-copy reveal">
-          <div class="ey">FoodMe Live Demo</div>
-          <h2><span class="zh">让 Try 区变成真实业务现场。</span><span class="en">Make Try feel like a real service floor.</span></h2>
-          <p><span class="zh">点击运行后，不只是圆环转动，而是模拟 FoodMe 的订单路径：顾客扫码、厨房接单、付款完成、会员回访。</span><span class="en">Run the demo to simulate a FoodMe order path: QR order, kitchen ticket, payment complete and loyalty follow-up.</span></p>
-          <div class="run-row">
-            <button class="pill primary" id="runBtn" type="button"><span class="zh">运行 FoodMe 流程</span><span class="en">Run FoodMe Flow</span></button>
-            <div class="counter"><span class="zh">已处理</span><span class="en">Processed</span> <b id="flowCount">0</b> <span class="zh">笔任务</span><span class="en">tasks</span></div>
+        <div class="demo-stage">
+          <div class="demo-orbit-wrap reveal">
+            
+            <img class="demo-watermark" src="assets/audo-mark-white.png" alt="" aria-hidden="true">
+            <div class="loop classic-loop" id="loop">
+              <button class="node" style="--x:0px; --y:-40%;" data-step="New Lead"><span class="zh">新线索</span><span class="en">New Lead</span></button>
+              <button class="node" style="--x:34%; --y:-20%;" data-step="Follow-up"><span class="zh">自动跟进</span><span class="en">Follow-up</span></button>
+              <button class="node" style="--x:34%; --y:20%;" data-step="Quotation"><span class="zh">报价单</span><span class="en">Quotation</span></button>
+              <button class="node" style="--x:0px; --y:40%;" data-step="E-Invoice"><span class="zh">电子发票</span><span class="en">E-Invoice</span></button>
+              <button class="node" style="--x:-34%; --y:20%;" data-step="Payment"><span class="zh">收款提醒</span><span class="en">Payment</span></button>
+              <button class="node" style="--x:-34%; --y:-20%;" data-step="Alert"><span class="zh">提醒</span><span class="en">Alert</span></button>
+              <div class="engine-core" aria-label="AUDO automation engine">
+                <img class="engine-logo" src="assets/audo-mark-white.png" alt="AUDO logo">
+                <span>ENGINE</span>
+              </div>
+            </div>
           </div>
-          <div class="scenario-row" id="scenarioRow">
-            <button type="button" class="active" data-scenario="dine"><span class="zh">堂食</span><span class="en">Dine-in</span></button>
-            <button type="button" data-scenario="takeaway"><span class="zh">外带</span><span class="en">Takeaway</span></button>
-            <button type="button" data-scenario="delivery"><span class="zh">外送</span><span class="en">Delivery</span></button>
-          </div>
-          <div class="try-console" id="tryConsole">
-            <div class="try-step active"><small>01 QR Order</small><b>Table 08</b><span>Customer scans, menu opens, order enters FoodMe.</span></div>
-            <div class="try-step"><small>02 Kitchen</small><b>KDS Ticket</b><span>Kitchen gets the right items without manual relay.</span></div>
-            <div class="try-step"><small>03 Payment</small><b>DuitNow / FPX</b><span>Payment, stock and loyalty update together.</span></div>
+          <div class="demo-panel reveal">
+            <p><span class="zh">点选圆环上的模块来开关流程，然后按 Run。每一次闪动都代表一个真实业务步骤被自动处理。</span><span class="en">Toggle the modules around the ring to assemble your flow, then hit Run. Every pulse represents a real operational step being auto-processed.</span></p>
+            <div class="run-row">
+              <button class="pill primary" id="runBtn" type="button"><span class="zh">运行</span><span class="en">Run</span></button>
+            </div>
+            <div class="counter demo-counter"><span class="zh">已自动处理</span><span class="en">Auto-processed</span> <b id="flowCount">0</b> <span class="zh">笔任务</span><span class="en">tasks</span></div>
+            <div class="plog" id="plog"><span class="zh">等待启动引擎...</span><span class="en">Engine standing by...</span></div>
           </div>
         </div>
       </div>
@@ -1499,10 +1606,11 @@
         </div>
         <div class="work-grid">
           <article class="glass-card work-card"><div><span class="tag">Finance</span><h3>AWARA Management System</h3><p><span class="zh">贷款代理全流程平台：客户、跟进、KPI/KFI、薪资、社区论坛与安全审计。</span><span class="en">Loan agency platform with clients, follow-ups, KPI/KFI, payroll, community and security audit.</span></p></div></article>
-          <article class="glass-card work-card"><div><span class="tag">BI</span><h3>ProRadar™</h3><p><span class="zh">KPI 仪表板、RFM、损益账龄、AI 分析师、Excel/PDF 导出。</span><span class="en">KPI dashboards, RFM, P&L, AR aging, AI analyst and Excel/PDF exports.</span></p></div></article>
+          <article class="glass-card work-card"><div><span class="tag">BI</span><h3>ProRadar™</h3><p><span class="zh">KPI 仪表板、RFM、损益账龄、AI 分析师、Excel 导出。</span><span class="en">KPI dashboards, RFM, P&L, AR aging, AI analyst and Excel exports.</span></p></div></article>
           <article class="glass-card work-card"><div><span class="tag">Education</span><h3>Tunas Education Platform</h3><p><span class="zh">托儿/补习：20+ 模块、多分行、MyInvois、FPX/DuitNow、三语、WhatsApp。</span><span class="en">Childcare and tuition platform: 20+ modules, branches, MyInvois, FPX/DuitNow and WhatsApp-first flows.</span></p></div></article>
           <article class="glass-card work-card"><div><span class="tag">Retail / CRM</span><h3>POS & CRM Systems</h3><p><span class="zh">零售 POS、会员库存、教练公司 CRM、大马薪资系统。</span><span class="en">Retail POS, membership inventory, coaching CRM and Malaysian payroll systems.</span></p></div></article>
           <article class="glass-card work-card"><div><span class="tag">F&B · New</span><h3>FoodMe System</h3><p><span class="zh">最新餐饮系统：QR 点餐、厨房屏、桌位/外带、库存扣减、付款、会员营销与老板报表。</span><span class="en">New F&B platform: QR menu, kitchen display, dine-in/takeaway, stock deduction, payments, loyalty and owner reports.</span></p></div></article>
+          <article class="glass-card work-card"><div><span class="tag">Professional Services</span><h3>APEX</h3><p><span class="zh">专业服务自动化平台：客户、项目、流程、文件、开票与团队运营，一站式整合管理。</span><span class="en">Professional Services Automation Platform: manage clients, projects, workflows, documents, invoicing and team operations in one integrated platform.</span></p></div></article>
         </div>
       </div>
     </section>
@@ -1736,8 +1844,9 @@
 
     runBtn.addEventListener("click", () => {
       running = !running;
-      runBtn.querySelector(".en").textContent = running ? "Pause FoodMe" : "Run FoodMe Flow";
-      runBtn.querySelector(".zh").textContent = running ? "暂停 FoodMe" : "运行 FoodMe 流程";
+      runBtn.querySelector(".en").textContent = running ? "Pause" : "Run";
+      runBtn.querySelector(".zh").textContent = running ? "暂停" : "运行";
+      document.querySelector(".demo-classic")?.classList.toggle("running", running);
       if (!running) {
         clearInterval(flowTimer);
         return;
@@ -1748,10 +1857,23 @@
         active.forEach((n) => n.classList.remove("hit"));
         const node = active[flowIndex % active.length];
         node.classList.add("hit");
+        const loopEl = document.getElementById("loop");
+        if (loopEl) {
+          const spark = document.createElement("span");
+          spark.className = "run-spark";
+          spark.style.setProperty("--a", ((flowIndex * 47) % 360) + "deg");
+          loopEl.appendChild(spark);
+          setTimeout(() => spark.remove(), 980);
+        }
         document.querySelectorAll(".try-step").forEach((step, idx) => step.classList.toggle("active", idx === flowIndex % 3));
         flowIndex++;
         flowCount++;
         flowCountEl.textContent = flowCount;
+        const plog = document.getElementById("plog");
+        if (plog) {
+          const label = (node.dataset.step || node.textContent.trim()).toUpperCase();
+          plog.innerHTML = `<span class="zh">正在处理：${label}</span><span class="en">Processing: ${label}</span>`;
+        }
       }, 620);
     });
 
@@ -1846,3 +1968,11 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
